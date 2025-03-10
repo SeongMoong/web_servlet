@@ -45,7 +45,7 @@ public class mailok2 extends HttpServlet {
 				this.alldata.add(this.data);
 			}
 			
-		m_noticelist nl = new m_noticelist();
+		//m_noticelist nl = new m_noticelist();
 		ArrayList<ArrayList<String>> result = this.alldata;
 		System.out.println(result);
 		
