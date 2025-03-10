@@ -19,16 +19,25 @@ public class m_noticelist {
 	ArrayList<String> data = null; //데이터를 배열로 가져옴, 각 컬럼별 값을 저장
 	ArrayList<ArrayList<String>> alldata = null; //Database전체 데이터를 저장, 그룹별로 가져오기 위해 2차배열 사용
 	
-	public m_noticelist() {
-		
+	int spage = 0; //첫번째 노드 (배열값)
+	int ea = 3; //한페이지당 계시물을 3개씩 출력
+	
+	public m_noticelist(int s) {
+		this.spage = s; //spl쿼리문 limit을 사용하기 위한 값
 	}
 	
 	public ArrayList<ArrayList<String>> db_data(){
 		
 		try {
 			this.con = db.getConnection();
-			this.sql = "select nidx, subject, writer, nview, ndate from notice order by nidx desc";
+			this.sql = "select nidx, subject, writer, nview, ndate, (select count(*) from notice) as total from notice " 
+					+ "order by nidx desc limit ?,?"; //띄어쓰기 안하면 noticeorder로 인식
+			//this.sql = "SELECT nidx, subject, writer, nview, ndate, "
+			//         + "(SELECT COUNT(*) FROM notice) AS total "
+			//         + "FROM notice ORDER BY nidx DESC LIMIT ?, ?";
 			this.ps = this.con.prepareStatement(sql);
+			this.ps.setInt(1, this.spage); // 첫 번째 ?에 적용
+			this.ps.setInt(2, this.ea); 
 			this.rs = this.ps.executeQuery(); //select
 			
 			//반복문으로 2차 배열 만드는 과정
@@ -40,6 +49,7 @@ public class m_noticelist {
 				this.data.add(this.rs.getString("writer"));
 				this.data.add(this.rs.getString("nview"));
 				this.data.add(this.rs.getString("ndate"));
+				this.data.add(this.rs.getString("total")); //게시물 전체 계수를 저장한 배열값
 				this.alldata.add(this.data);
 			}
 
