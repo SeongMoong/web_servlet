@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form id="frm" method="post" action="./cook.do">
+<p>쿠폰 등록 페이지</p>
+아이디 : <input type="text" name = "mid"><br>
+쿠폰번호 : <input type="text" name = "mnum"><br>
+<input type="checkbox" name = "mad" value="광고 수신 동의함">광고 수신 동의(필수)<br>
+<input type="button" value="예매하기" onclick="gogo()">
+</form>
+</body>
+<script>
+function gogo(){
+	if(frm.mid.value==""){
+		alert("아이디를 입력해주세요");
+	}else if(frm.mnum.value==""){
+		alert("쿠폰번호를 입력해주세요")
+	}else if(!frm.mad.checked){
+		alert("광고 수신 동의 해주세요")
+	}else{
+		frm.submit();
+		
+	}
+}
+</script>
+</html>

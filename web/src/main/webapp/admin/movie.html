@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 예매 시스템</title>
+</head>
+<body>
+<form id="frm" method="post" action="./movieok.do">
+<p>영화 예매 시스템</p>
+고객명 : <input type="text" name="muser"><br>
+연락처 : <input type="tel" name="mtel" maxlength="11"> "-"없이 숫자만 입력<br>
+영화선택: <br>
+<input type="radio" name="mmovie" value="히트맨2">히트맨2<br>
+<input type="radio" name="mmovie" value="써니데이">써니데이<br>
+<input type="radio" name="mmovie" value="브루탈리스트">브루탈리스트<br>
+<input type="radio" name="mmovie" value="히어">히어<br>
+<input type="radio" name="mmovie" value="하얼빈">하얼빈<br>
+예매일자 : <input type="date" min="2025-02-20" name = "mdate"><br>
+<input type="button" value="예매하기" onclick="mstart()">
+</form>
+<script>
+function mstart(){
+
+	if(frm.muser.value==""){
+		alert("고객명을 입력해주세요")
+	}
+	else if(frm.mtel.value==""){
+		alert("연락처를 입력해 주세요")
+	}
+	else if(frm.mmovie.value==""){
+		alert("영화를 선택해 주세요")
+	}
+	else if(frm.mdate.value==""){
+		alert("날짜를 입력해 주세요")
+	}
+	else{
+		frm.submit();
+	}
+}
+</script>
+</body>
+</html>
