@@ -4,6 +4,15 @@
 <display-name>web</display-name>
 
 <servlet>
+<servlet-name>ajax_postok</servlet-name>
+<servlet-class>ajax.ajax_postok</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ajax_postok</servlet-name>
+<url-pattern>/ajax/ajax_postok.do</url-pattern>
+</servlet-mapping>
+
+<servlet>
 <servlet-name>notice_delete</servlet-name>
 <servlet-class>notice.notice_delete</servlet-class>
 </servlet>
