@@ -25,6 +25,11 @@ $(function(){
 			var $formdata = new FormData();
 			$formdata.append("mfile",$("#mfile")[0].files[0]); //파일 날릴때 .files사용
 			console.log($formdata.get("mfile"));
+			/*
+			. ✅ $formdata.append("mfile", $("#mfile")[0]);
+			$("#mfile")[0]는 실제 DOM 요소 (<input type="file">)를 가리킴
+			그러나 append("mfile", inputElement) 하면 input 요소 자체가 전송됨 (파일이 아니라)
+			*/
 			
 			$.ajax({
 				url:"./ajax_fileok.do",
