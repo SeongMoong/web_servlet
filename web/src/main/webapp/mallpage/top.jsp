@@ -9,7 +9,7 @@
 %>
 <header>
     <div class="navbar">
-      <a href="#" id="logo">
+      <a href="./index.do" id="logo">
         <img src="images/logo.jpg" width="149">
         </a>
         <ul id="menu">
