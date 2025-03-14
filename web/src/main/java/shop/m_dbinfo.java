@@ -9,6 +9,8 @@ public class m_dbinfo {
 	public static Connection getConnection() throws Exception {
 		
 		String db_driver = "com.mysql.cj.jdbc.Driver"; //db라이브러리 가져오기
+		
+		//Data Source Explorer >> Properties 에 다있음
 		String db_url = "jdbc:mysql://localhost:3306/mrp"; //db 경로 연결
 		String db_user = "project";//mysql에 접속하는 사용자
 		String db_passwd = "a123456"; //mysql에 접속하는 사용자의 패스워드
